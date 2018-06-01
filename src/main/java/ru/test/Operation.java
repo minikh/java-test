@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Builder
 @Getter
-@ToString
 public class Operation {
     public final static String DELIMITER = "\t";
     private LocalDateTime date;
