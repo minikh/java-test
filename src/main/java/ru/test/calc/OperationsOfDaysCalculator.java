@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class OperationsOfDaysCalculator implements Calculator {
@@ -14,7 +15,7 @@ public class OperationsOfDaysCalculator implements Calculator {
     private Map<String, BigDecimal> operations;
 
     OperationsOfDaysCalculator() {
-        operations = new HashMap<>();
+        operations = new ConcurrentHashMap<>();
     }
 
     @Override

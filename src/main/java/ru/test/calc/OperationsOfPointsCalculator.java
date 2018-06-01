@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class OperationsOfPointsCalculator implements Calculator {
@@ -13,7 +14,7 @@ public class OperationsOfPointsCalculator implements Calculator {
     private final Map<String, BigDecimal> operations;
 
     OperationsOfPointsCalculator() {
-        this.operations = new HashMap<>();
+        this.operations = new ConcurrentHashMap<>();
     }
 
     @Override

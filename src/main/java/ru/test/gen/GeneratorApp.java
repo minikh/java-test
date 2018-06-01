@@ -1,5 +1,8 @@
 package ru.test.gen;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 public class GeneratorApp {
 
     public static void main(String[] args) {
@@ -8,10 +11,18 @@ public class GeneratorApp {
         }
 
         String pointsFileName = args[0];
-        Long countOperations = Long.parseLong(args[1]);
+        Long countOperations = Long.parseLong(args[1].replace("_", ""));
         String operationsFileName = args[2];
 
+        LocalDateTime start = LocalDateTime.now();
+
         new GeneratorApp().start(pointsFileName, countOperations, operationsFileName);
+
+        LocalDateTime end = LocalDateTime.now();
+        long diffSec = start.until(end, ChronoUnit.SECONDS);
+        long diffMin = start.until(end, ChronoUnit.MINUTES);
+        System.out.println("time = " + diffSec + " sec");
+        System.out.println("time = " + diffMin + " min");
     }
 
     private void start(String pointsFileName, Long countOperations, String operationsFileName) {
